@@ -1,6 +1,9 @@
 **Ethan's website thing for cse15l :))))))**
+
 *Italics*
+
 **Bold**
+
 > code block
 > peepee
 > wiener
@@ -9,7 +12,9 @@
 horizontal rule:
 ---
 
+
 `inline code`
+
 
 ```
 peepee code vbblock
