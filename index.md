@@ -37,7 +37,7 @@ Follow [this](https://sdacs.ucsd.edu/~icc/index.php) tutorial.
 
 To remote connect, open a terminal:
 
-![image](new%20terminal.png)
+![image](new terminal.png)
 
 To use ssh, type in this command, where the XXXs are the last 3 letters of your cse15l username: 
 
