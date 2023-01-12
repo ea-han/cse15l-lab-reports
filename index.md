@@ -24,7 +24,7 @@ Install VSCode here: [Link](https://code.visualstudio.com/)
 
 Once installed, open VSCode. Your screen should look like this:
 
-![Image](https://github.com/ea-han/cse15l-lab-reports/blob/main/menuscreenshot.png)
+![Image](menuscreenshot.png)
 
 
 # Part 2: SSH :)
@@ -37,7 +37,7 @@ Follow [this](https://sdacs.ucsd.edu/~icc/index.php) tutorial.
 
 To remote connect, open a terminal:
 
-![image](https://github.com/ea-han/cse15l-lab-reports/blob/main/new%20terminal.png)
+![image](new%20terminal.png)
 
 To use ssh, type in this command, where the XXXs are the last 3 letters of your cse15l username: 
 
@@ -49,7 +49,7 @@ Since it is your first time connecting to the remote server, you will most likel
 
 **If your terminal displays something like this, it means your are in!**
 
-![image](https://github.com/ea-han/cse15l-lab-reports/blob/main/terminal.png)
+![image](terminal.png)
 
 **Try typing in a few commands!**
 
@@ -67,7 +67,7 @@ ls -a
 
 Here is an example command of me making a directory with the 'mkdir' command:
 
-![image](https://github.com/ea-han/cse15l-lab-reports/blob/main/COMMAND.png)
+![image](COMMAND.png)
 
 ---
 
