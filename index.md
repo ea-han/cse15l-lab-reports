@@ -14,7 +14,7 @@ Click on this link to access your account: [Link](https://sdacs.ucsd.edu/~icc/in
 Here is a tutorial to change your password in case it is your first time accessing your account: [Link](https://docs.google.com/document/d/1hs7CyQeh-MdUfM9uv99i8tqfneos6Y8bDU0uhn1wqho/edit)
 
 
-**Your account should looks something like this: `cs15lwi23XXX`
+**Your account should looks something like this: `cs15lwi23XXX`**
 
 Good job :)
 
@@ -26,7 +26,7 @@ Install VSCode here: [Link](https://code.visualstudio.com/)
 
 Once installed, open VSCode. Your screen should look like this:
 
-![Image](menuscreenshot.png)
+![image](menuscreenshot.png)
 
 
 # Part 2: Installing Git and Remotely Connecting
