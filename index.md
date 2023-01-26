@@ -1,6 +1,6 @@
 # Lab Report 2: Servers and Bugs
 
-**This tutorial will demonstrate the creation of a web server and bug testing.**
+**This tutorial will demonstrate the creation of a web server and some bug testing.**
 
 # Part 1: Writing and Running a Web Server
 
@@ -15,6 +15,15 @@ When we recieve this query, we will concatenate the argument after the "s=" to o
 This is what our code looks like:
 ![image](stringServer.png)
 
+## Things to note:
+
+1. Underlined in orange is our string for storing what will be displayed on the main page. 
+   When an add-message query is recieved, whatever is passed will be concatenated to this string.
+2. Underlined in green is our URI object. The difference between a URI and a URL is that a 
+   "URI identifies a resource and differentiates it from others by using a name, location, or both. 
+   URL identifies the web address or location of a unique resource."
+3. Circled in red is 
+   
 
 
 
