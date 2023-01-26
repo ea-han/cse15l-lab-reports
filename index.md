@@ -13,7 +13,7 @@
 When we recieve this query, we will concatenate the argument after the "s=" to our server string.
 
 This is what our code looks like:
-[image]()
+![image](stringServer.png)
 
 
 
