@@ -42,7 +42,7 @@ Follow [this](https://stackoverflow.com/questions/42606837/how-do-i-use-bash-on-
 
 To remotely connect, open a terminal:
 
-![image](new_terminal.png)
+![image](new terminal.png)
 
 To use ssh, type in this command, where the XXXs are the last 3 letters of your cse15l username: 
 
