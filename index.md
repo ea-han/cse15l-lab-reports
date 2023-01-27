@@ -32,6 +32,7 @@ This is what our code looks like:
 First, we will start the server in the console using this command, where the numbers are the port number: ``java StringSearch 12101``
  
 This is what we see in the console:
+
 ![image](https://user-images.githubusercontent.com/110416337/214997721-3c31b211-2d32-4a96-96e3-292cba58a3e0.png)
    
 If we navigate to the link provided, this is what we see:
@@ -76,16 +77,20 @@ This is ArrayExamples, and it contains the method we will be testing:
   }
 ```
 
-**Here is an input that will have the correct output:**
-```
- int[] input1 = { 3 };
- ArrayExamples.reverseInPlace(input1);
- //input1 becomes { 3 }.
- ```
+**Lets test our method with these two testers. One of them works, and the other does not.
 
-**In this case, the method functions as intended. Now lets look at an input that will cause errors.**
+![image](https://user-images.githubusercontent.com/110416337/215005810-7871b609-1839-4d30-aac4-dccd91057d06.png)
 
-**The reason this occurs is because our method replaces 
+
+**Lets look at the output from the unit tester:**
+
+![image](https://user-images.githubusercontent.com/110416337/215005783-15a0c6f3-2a44-45f0-9656-bdbe67007441.png)
+
+
+**The reason the second tester fails is because our method replaces the indices instead of swapping them. When there is only one 
+element, the array remains unchanged. Instead, lets iterate to the middle of the array, swapping the opposite ends while we do so.
+We will need to make a new var, currInt, to store the number we are swappping.**
+
 ``` 
 // Changes the input array to be in reversed order
   static void reverseInPlace(int[] arr) {
@@ -96,7 +101,21 @@ This is ArrayExamples, and it contains the method we will be testing:
       arr[arr.length - i - 1] = currInt;
     }
   }
-  ```
+```
+
+**Lets run the tester again.**
+
+![image](https://user-images.githubusercontent.com/110416337/215005954-00f0585d-6fb3-4e87-a035-1d173a30dafe.png)
+
+**Yay it worked!! Lets move on to part 3.**
+
+# Part 3: What I learned
+
+**Here I will tell you in 1 or 2 sentences something I learned this week.**
+
+This week, I learned about unit testing, specifically the differences between a symptom, a bug and a failure-inducing input.
+A failure-inducing input is an input that causes the program to behave incorrectly. 
+A symptom is an incorrect behavior that is caused by a bug.
 
 
 
