@@ -26,6 +26,8 @@ This is what our code looks like:
    check if it is either "/" or "/add-message". 
    - Circled in red is the code for an empty string. This is where we display the stored string.
    - Circled in blue is the code for adding a string. These lines concatenate the entered string and a new line.
+
+
 ---
  **Here's a demonstration of how our server will function:**
  
@@ -77,9 +79,25 @@ This is ArrayExamples, and it contains the method we will be testing:
   }
 ```
 
-**Lets test our method with these two testers. One of them works, and the other does not.
+**Lets test our method with these two testers. One of them works, and the other does not.**
 
-![image](https://user-images.githubusercontent.com/110416337/215005810-7871b609-1839-4d30-aac4-dccd91057d06.png)
+```
+public class ArrayTests {
+  @Test
+  public void testReverseInPlace() {
+    int[] input1 = { 3 };
+    ArrayExamples.reverseInPlace(input1);
+    assertArrayEquals(new int[] { 3 }, input1);
+  }
+
+  @Test
+  public void testReverseInPlace2() {
+    int[] input1 = { 1, 3, 5, 7 };
+    ArrayExamples.reverseInPlace(input1);
+    assertArrayEquals(new int[] { 7, 5, 3, 1 }, input1);
+  }
+}
+```
 
 
 **Lets look at the output from the unit tester:**
