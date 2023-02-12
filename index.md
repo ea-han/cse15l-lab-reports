@@ -1,140 +1,248 @@
-# Lab Report 2: Servers and Bugs
+# Lab Report 3: Researching Commands
+**This lab is about researching the find command. We will explore different ways to use the find command.**
 
-**This tutorial will demonstrate the creation of a web server and some bug testing.**
-
-# Part 1: Writing and Running a Web Server
-
----
-
-**We will be writing a java class called StringServer. It will keep track of a single string and print it to the server. We will modify the strings with this request:**
-
-``/add-message?s=<string>``
-
-When we recieve this query, we will concatenate the argument after the "s=" to our server string.
-
-This is what our code looks like:
-![image](stringServer.png)
-
-## Things to note:
-
-1. Underlined in orange is our string for storing what will be displayed on the main page, "serverString". 
-   When an add-message query is recieved, whatever is passed will be concatenated to this string.
-2. Underlined in green is our URI object. The difference between a URI and a URL is that a 
-   "URI identifies a resource and differentiates it from others by using a name, location, or both. 
-   URL identifies the web address or location of a unique resource."
-3. Our request handler is composed of two if statements. When it is called, we retrieve the path and 
-   check if it is either "/" or "/add-message". 
-   - Circled in red is the code for an empty string. This is where we display the stored string.
-   - Circled in blue is the code for adding a string. These lines concatenate the entered string and a new line.
+The find command in Linux can be modified with various options, or flags, to change its behavior. Here are some commonly used modifiers for the find command:
 
 
----
- **Here's a demonstration of how our server will function:**
- 
-First, we will start the server in the console using this command, where the numbers are the port number: ``java StringSearch 12101``
- 
-This is what we see in the console:
+## 1. -iname: Searches for files with a specific name, case-insensitively. For example, find / -iname example.txt will search for a file named "example.txt" or "Example.txt" in the root directory and all subdirectories.
 
-![image](https://user-images.githubusercontent.com/110416337/214997721-3c31b211-2d32-4a96-96e3-292cba58a3e0.png)
-   
-If we navigate to the link provided, this is what we see:
-(note: the port is different because I took the screenshots at different times, but normally it would be the same.) 
+This is useful when we don't know what case the file we are searching for is in. It is also useful when we are trying to find all files containing a phrase, regardless of case.
 
- ![image](emptyPage.png)
- 
- Lets add a string:
- 
- ![image](firstMessage.png)
- 
- Now lets see if it worked:
- 
- ![image](firstMessageMainPage.png)
- 
- Lets add another string:
- 
- ![image](secondMessage.png)
- 
- And navigate to the main page:
- 
- ![image](secondMessageMainPage.png)
- 
- 
- 
----
+**Let's try this out. Here we are looking for a file called Bahamas-History.txt, but lets say we don't know if it is capitalized or not. By using iname, we can ignore capitalization:**
 
-# Part 2: Bug Testing
-
-**Here, I will demonstrate some basic JUnit testing and bugfixing.**
-
-We will have two classes, ArrayExamples.java and ArrayTests.java. 
-
-This is ArrayExamples, and it contains the method we will be testing:
+Here is the command:
 
 ```
-  // Changes the input array to be in reversed order
-  static void reverseInPlace(int[] arr) {
-    for(int i = 0; i < arr.length; i += 1) {
-      arr[i] = arr[arr.length - i - 1];
-    }
-  }
+$ find -iname bahamas-history.txt
 ```
 
-**Lets test our method with these two testers. One of them works, and the other does not.**
+And here is the output:
 
 ```
-public class ArrayTests {
-  @Test
-  public void testReverseInPlace() {
-    int[] input1 = { 3 };
-    ArrayExamples.reverseInPlace(input1);
-    assertArrayEquals(new int[] { 3 }, input1);
-  }
+./written_2/travel_guides/berlitz2/Bahamas-History.txt
 
-  @Test
-  public void testReverseInPlace2() {
-    int[] input1 = { 1, 3, 5, 7 };
-    ArrayExamples.reverseInPlace(input1);
-    assertArrayEquals(new int[] { 7, 5, 3, 1 }, input1);
-  }
-}
 ```
 
 
-**Lets look at the output from the unit tester:**
+**Now lets try to search for multiple files, while ignoring case:**
 
-![image](https://user-images.githubusercontent.com/110416337/215005783-15a0c6f3-2a44-45f0-9656-bdbe67007441.png)
+Here is the command:
 
-
-**The reason the second tester fails is because our method replaces the indices instead of swapping them. When there is only one 
-element, the array remains unchanged. Instead, lets iterate to the middle of the array, swapping the opposite ends while we do so.
-We will need to make a new var, currInt, to store the number we are swappping.**
-
-``` 
-// Changes the input array to be in reversed order
-  static void reverseInPlace(int[] arr) {
-    int currInt;
-    for (int i = 0; i < arr.length / 2; i += 1) {
-      currInt = arr[i];
-      arr[i] = arr[arr.length - i - 1];
-      arr[arr.length - i - 1] = currInt;
-    }
-  }
+```
+$ find -iname "athens*"
 ```
 
-**Lets run the tester again.**
+And here is the output:
 
-![image](https://user-images.githubusercontent.com/110416337/215005954-00f0585d-6fb3-4e87-a035-1d173a30dafe.png)
+```
+./written_2/travel_guides/berlitz2/Athens-History.txt
+./written_2/travel_guides/berlitz2/Athens-Intro.txt
+./written_2/travel_guides/berlitz2/Athens-WhatToDo.txt
+./written_2/travel_guides/berlitz2/Athens-WhereToGo.txt
+```
 
-**Yay it worked!! Lets move on to part 3.**
+## 2. -type: Specifies the type of file to be searched for. It can be set to f for a regular file, d for a directory, l for a symbolic link, or c for a character special file. For example, find / -type f will search for regular files in the root directory and all subdirectories.
 
-# Part 3: What I learned
+This is useful when we are looking for a specific file type, or trying to narrow our search to only directories.
 
-**Here I will tell you in 1 or 2 sentences something I learned this week.**
+**Let's search specifically for directories by adding -type d:**
 
-This week, I learned about unit testing, specifically the differences between a symptom, a bug and a failure-inducing input.
-A failure-inducing input is an input that causes the program to behave incorrectly. 
-A symptom is an incorrect behavior that is caused by a bug.
+Here is the command:
 
+```
+$ find written_2/ -type d
+```
+
+And here is the output:
+
+```
+written_2/
+written_2/non-fiction
+written_2/non-fiction/OUP
+written_2/non-fiction/OUP/Abernathy
+written_2/non-fiction/OUP/Berk
+written_2/non-fiction/OUP/Castro
+written_2/non-fiction/OUP/Fletcher
+written_2/non-fiction/OUP/Kauffman
+written_2/non-fiction/OUP/Rybczynski
+written_2/travel_guides
+written_2/travel_guides/berlitz1
+written_2/travel_guides/berlitz2
+```
+
+**Now lets look for regular files with -type f. This will exclude directories and only search for files:**
+
+Here is the command:
+
+```
+$ find written_2/ -type f
+```
+
+And here is the output:
+
+```
+written_2/non-fiction/OUP/Abernathy/ch1.txt
+written_2/non-fiction/OUP/Abernathy/ch14.txt
+written_2/non-fiction/OUP/Abernathy/ch15.txt
+written_2/non-fiction/OUP/Abernathy/ch2.txt
+written_2/non-fiction/OUP/Abernathy/ch3.txt
+written_2/non-fiction/OUP/Abernathy/ch6.txt
+written_2/non-fiction/OUP/Abernathy/ch7.txt
+written_2/non-fiction/OUP/Abernathy/ch8.txt
+written_2/non-fiction/OUP/Abernathy/ch9.txt
+written_2/non-fiction/OUP/Berk/ch1.txt
+written_2/non-fiction/OUP/Berk/ch2.txt
+written_2/non-fiction/OUP/Berk/CH4.txt
+written_2/non-fiction/OUP/Berk/ch7.txt
+written_2/non-fiction/OUP/Castro/chA.txt
+written_2/non-fiction/OUP/Castro/chB.txt
+...
+```
+
+
+## 3. -mtime: Searches for files that have been modified within a specified number of days. For example, find / -mtime -7 will search for files that have been modified in the last 7 days.
+
+This command is useful when we are looking for files that have been recently modified, or collecting files that we have worked on to push to a repository.
+
+**Since we have just cloned this repo, if I search for files that have been modified within the last day, It should return all files:**
+
+Here is the command:
+
+```
+$ find written_2/ -mtime -1
+```
+
+And here is the output:
+
+```
+written_2/
+written_2/non-fiction
+written_2/non-fiction/OUP
+written_2/non-fiction/OUP/Abernathy
+written_2/non-fiction/OUP/Abernathy/ch1.txt
+written_2/non-fiction/OUP/Abernathy/ch14.txt
+written_2/non-fiction/OUP/Abernathy/ch15.txt
+written_2/non-fiction/OUP/Abernathy/ch2.txt
+written_2/non-fiction/OUP/Abernathy/ch3.txt
+written_2/non-fiction/OUP/Abernathy/ch6.txt
+written_2/non-fiction/OUP/Abernathy/ch7.txt
+written_2/non-fiction/OUP/Abernathy/ch8.txt
+written_2/non-fiction/OUP/Abernathy/ch9.txt
+written_2/non-fiction/OUP/Berk
+written_2/non-fiction/OUP/Berk/ch1.txt
+written_2/non-fiction/OUP/Berk/ch2.txt
+written_2/non-fiction/OUP/Berk/CH4.txt
+written_2/non-fiction/OUP/Berk/ch7.txt
+written_2/non-fiction/OUP/Castro
+written_2/non-fiction/OUP/Castro/chA.txt
+written_2/non-fiction/OUP/Castro/chB.txt
+written_2/non-fiction/OUP/Castro/chC.txt
+written_2/non-fiction/OUP/Castro/chL.txt
+written_2/non-fiction/OUP/Castro/chM.txt
+written_2/non-fiction/OUP/Castro/chN.txt
+written_2/non-fiction/OUP/Castro/chO.txt
+written_2/non-fiction/OUP/Castro/chP.txt
+written_2/non-fiction/OUP/Castro/chQ.txt
+written_2/non-fiction/OUP/Castro/chR.txt
+written_2/non-fiction/OUP/Castro/chV.txt
+written_2/non-fiction/OUP/Castro/chW.txt
+written_2/non-fiction/OUP/Castro/chY.txt
+written_2/non-fiction/OUP/Castro/chZ.txt
+...
+```
+
+**If we do the same with an mtime of 0, we should get 0 files, since they were all modified within the last day:**
+
+Here is the command:
+
+```
+$ find written_2/ -mtime -0
+```
+
+And here is the output:
+
+```
+
+```
+
+## 4. -size: Searches for files with a specified size. For example, find / -size +100M will search for files larger than 100 MB in the root directory and all subdirectories.
+
+This command is good for looking for specific file sizes. This is useful if we are searching for all .txt files in a collection of directories, or want only large files.
+
+**Lets try to find all files LESS than 3KB. The - in -3k denotes less than:**
+
+Here is the command:
+
+```
+$ find written_2/ -size -3k
+```
+
+And here is the output:
+
+```
+written_2/
+written_2/non-fiction
+written_2/non-fiction/OUP
+written_2/non-fiction/OUP/Abernathy
+written_2/non-fiction/OUP/Berk
+written_2/non-fiction/OUP/Castro
+written_2/non-fiction/OUP/Fletcher
+written_2/non-fiction/OUP/Kauffman
+written_2/non-fiction/OUP/Rybczynski
+written_2/travel_guides
+written_2/travel_guides/berlitz1
+written_2/travel_guides/berlitz1/HandRHongKong.txt
+written_2/travel_guides/berlitz1/HandRIbiza.txt
+written_2/travel_guides/berlitz1/HandRIstanbul.txt
+written_2/travel_guides/berlitz1/HandRJerusalem.txt
+written_2/travel_guides/berlitz1/HandRLakeDistrict.txt
+written_2/travel_guides/berlitz1/HandRLasVegas.txt
+written_2/travel_guides/berlitz1/HandRLisbon.txt
+written_2/travel_guides/berlitz1/HandRLosAngeles.txt
+written_2/travel_guides/berlitz1/HandRMadeira.txt
+written_2/travel_guides/berlitz1/HandRMallorca.txt
+written_2/travel_guides/berlitz2
+
+```
+
+**Now lets search for all files GREATER than 30KB. The + denotes greater than.**
+
+Here is the command:
+
+```
+$ find written_2/ -size +30k
+```
+
+And here is the output:
+
+```
+written_2/
+written_2/non-fiction
+written_2/non-fiction/OUP
+written_2/non-fiction/OUP/Abernathy
+written_2/non-fiction/OUP/Berk
+written_2/non-fiction/OUP/Castro
+written_2/non-fiction/OUP/Fletcher
+written_2/non-fiction/OUP/Kauffman
+written_2/non-fiction/OUP/Rybczynski
+written_2/travel_guides
+written_2/travel_guides/berlitz1
+written_2/travel_guides/berlitz1/HandRHongKong.txt
+written_2/travel_guides/berlitz1/HandRIbiza.txt
+written_2/travel_guides/berlitz1/HandRIstanbul.txt
+written_2/travel_guides/berlitz1/HandRJerusalem.txt
+written_2/travel_guides/berlitz1/HandRLakeDistrict.txt
+written_2/travel_guides/berlitz1/HandRLasVegas.txt
+written_2/travel_guides/berlitz1/HandRLisbon.txt
+written_2/travel_guides/berlitz1/HandRLosAngeles.txt
+written_2/travel_guides/berlitz1/HandRMadeira.txt
+written_2/travel_guides/berlitz1/HandRMallorca.txt
+written_2/travel_guides/berlitz2
+
+```
+
+
+This lab report was written in part by ChatGPT.
 
 
 
