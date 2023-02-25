@@ -46,11 +46,6 @@ We fork repositories when we want to a copy of a repository owned by someone els
 ![image](https://user-images.githubusercontent.com/110416337/221088184-18eedd6d-ae3c-4e43-a77f-1182a89acf3a.png)
 
 
-Keys Pressed:
-```
-rm -r lab7 <Enter>
-```
-
 ## 4. Log into ieng6
 
 ![image](https://user-images.githubusercontent.com/110416337/221088551-c3089596-142f-4790-a249-07875e8f7094.png)
@@ -66,16 +61,23 @@ Keys Pressed:
 
 ## 5. Clone your fork of the repository from your Github account
 
+![image](https://user-images.githubusercontent.com/110416337/221380099-e57ad8dc-b390-445e-8ec1-68584a65980a.png)
 
+We will use git clone to clone our lab7 fork. We can copy and paste the link of our repo into git with ctrl+v.
 
 Keys Pressed:
 ```
 git clone <Ctrl+v>
 ```
 ## 6. Run the tests, demonstrating that they fail
+
+If we navigate to the week 3 CSE15L page, we can copy and paste the command ``javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java`` to compile the java files.
+
+Then, we 
+
 Keys Pressed:
 ```
-rm -r lab7 <Enter>
+
 ```
 ## 7. Edit the code file to fix the failing test
 Keys Pressed:
