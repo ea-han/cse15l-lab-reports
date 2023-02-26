@@ -71,26 +71,55 @@ git clone <Ctrl+v>
 ```
 ## 6. Run the tests, demonstrating that they fail
 
+First, we must cd into the lab7 directory.
+
 If we navigate to the week 3 CSE15L page, we can copy and paste the command ``javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java`` to compile the java files.
 
-Then, we 
+Then, we can run them with  ``java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTester``, which is also from the week 3 page.
+
+![image](https://user-images.githubusercontent.com/110416337/221385102-3b699bcf-2e04-4e89-b779-750ef8e3913f.png)
+As you can see, one of the tests has failed.
+
 
 Keys Pressed:
 ```
-
+cd lab7 <Enter>,
+<Ctrl+v> <Enter>,
+<Ctrl+v> <Enter>
 ```
 ## 7. Edit the code file to fix the failing test
+
+![image](https://user-images.githubusercontent.com/110416337/221385205-12e614c3-05ed-4c0a-9d7e-a20f9388e262.png)
+
+
 Keys Pressed:
 ```
-rm -r lab7 <Enter>
+nano ListExamples.java <Enter>,
+
+<Ctrl+w> result.add(0, s); <Enter>,
+<left><left><left><left><left><left><left><left><left><left><left><left><left><left><Backspace><Backspace><Backspace>,
+
+<Ctrl+w> result.add(list2.get(index2)); <Enter>,
+<down><left><left><left><left><left><left><Backspace>1,
+<Ctrl+o><Enter><Ctrl+x>
 ```
 ## 8. Run the tests, demonstrating that they now succeed
+
+![image](https://user-images.githubusercontent.com/110416337/221385193-28c85908-7380-4bfb-8465-903e3a430db9.png)
+
+
 Keys Pressed:
 ```
-rm -r lab7 <Enter>
+
 ```
 ## 9. Commit and push the resulting change to your Github account
+
+![image](https://user-images.githubusercontent.com/110416337/221385229-a3276e7f-b5f8-4a23-a2cf-0b8d9165be10.png)
+
+
 Keys Pressed:
 ```
-rm -r lab7 <Enter>
+git add ListExamples.java <Enter>
+git commit -m "init commit" <Enter>
+git push <Enter>
 ```
