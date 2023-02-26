@@ -107,15 +107,27 @@ nano ListExamples.java <Enter>,
 
 ![image](https://user-images.githubusercontent.com/110416337/221385193-28c85908-7380-4bfb-8465-903e3a430db9.png)
 
+Now lets repeat what we did for the first compile and run. We will use the same commands. Let's use ``javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java`` to compile the java files.
+
+Then, we can run them with  ``java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTester``, which is also from the week 3 page.
 
 Keys Pressed:
 ```
+javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java <Enter>,
+java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTester <Enter>
 
 ```
 ## 9. Commit and push the resulting change to your Github account
 
 ![image](https://user-images.githubusercontent.com/110416337/221385229-a3276e7f-b5f8-4a23-a2cf-0b8d9165be10.png)
 
+Now we can push our changes to our fork on github. 
+
+First, we will add the file to the staging area with ``git add ListExamples.java``.
+
+Then, we will commit them to our local repository: ``git commit -m "init commit"``. We can add a commit message with the -m modifier, ``"init commit"``.
+
+Finally, we can push it to our repository with ``git push``.
 
 Keys Pressed:
 ```
