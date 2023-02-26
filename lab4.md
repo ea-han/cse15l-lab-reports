@@ -91,6 +91,11 @@ cd lab7 <Enter>,
 
 ![image](https://user-images.githubusercontent.com/110416337/221385205-12e614c3-05ed-4c0a-9d7e-a20f9388e262.png)
 
+In ListExamples.java, there are 2 bugs we need to fix. There are typos on lines 15 and 43. 
+
+To quickly find and edit them, we will use the WhereIs function in nano, bound to ``Ctrl+W``. After locating the line or a line near it, we will navigate using the arrow keys to alter the lines.
+
+To save our changes, we will use the WriteOut function to save the file: ``Ctrl+o`` After we save, we can close the file with ``Ctrl+X``.
 
 Keys Pressed:
 ```
