@@ -45,9 +45,38 @@ written_2/travel_guides/berlitz2/Crete-WhereToGo.txt:Evans made numerous remarka
 ```
 
 ## 3. Search for a pattern and display only the matching text:
-By default, grep will display the entire line that contains the pattern. However, you can use the -o option to display only the matching text. For example, to search for the word "marble statue" in a file called "Athens-History.txt" and display only the matching text, you would use the following command:
+By default, grep will display the entire line that contains the pattern. However, you can use the -o option to display only the matching text. For example, to search for the word "Acropolis" in a file called "Athens-History.txt" and display only the matching text, you would use the following command:
 
 ```
+grep -o Acropolis Athens-History.txt
+```
 
+This command will display only the matching text:
+
+```
+$ grep -o Acropolis Athens-History.txt
+Acropolis
+Acropolis
+Acropolis
+Acropolis
+Acropolis
+Acropolis
+```
 ## 4. Search for a pattern and exclude certain files or directories:
-You can use the --exclude and --exclude-dir options to exclude certain files or directories from your search. For example, to search for the word "apple" in all text files in the current directory, but exclude any files with the extension ".log", you would use the following command:
+You can use the --exclude and --exclude-dir options to exclude certain files or directories from your search. For example, to recursively search for the word "pee" in all text files in the current directory, but exclude any files with names containing "Athens", you would use the following command:
+
+```
+grep --exclude "Athens" pee *.txt
+```
+
+This yields:
+
+```
+$ grep --exclude "Athens" pee *.txt
+Amsterdam-Intro.txt:Amsterdam is a wonderful city for visitors. Small enough to stroll around, and with the canal side streets too narrow for tour buses, you can’t drive past all the best attractions at high speed. Here, there is no glass window between you and reality. You have to feel the summer sun, or see your breath on a crisp winter morning as you step out to see what Amsterdam is all about. If you take a canal tour, the quiet boats allow you to float slowly along, away from the noise of the modern world.
+Amsterdam-WhereToGo.txt:Cross the river via Magere Brug then travel one block north and take a left along the northern bank of the Herengracht Canal. Here you will get your first glimpse of the canal system which was built during Amsterdam’s Golden Age and revolutionized the city. During its time, probably the most sought after and expensive real estate in the world. Herengracht particularly has many beautiful houses which can really only be appreciated by an afternoon strolling by them (see box page 66). This part of town is still mostly residential and many houses have been converted into apartments for successful Amsterdammers. It is fascinating to peek inside at the ultra-modern interiors, which give a feel of the flair the Dutch seem to have for interior design.
+Amsterdam-WhereToGo.txt:Haarlem, situated only 19 km (12 miles) from Amsterdam is the birthplace of Frans Hals, father of The Dutch School of painting which developed during the Golden Age. He was a peer of Rembrandt’s among others.
+Athens-History.txt:But Athens was never to regain her earlier military or political influence. A new star rose in the north — that of Philip II of Macedon, father of Alexander the Great. He advanced the far-sighted scheme of a federation of Greek states, which Athens resisted. Some Athenians even urged the Assembly to declare war on the Macedonian King. (The fiery Philippics, speeches on the subject by master orator Demosthenes, rate among the finest of their kind.) Following defeat at the battle of Chaeronea in 338 b.c., however, the Athenians accepted an alliance with other states and even sent Philip a gold crown as a token of submission.
+Athens-WhereToGo.txt:In the northeastern area, you’ll come to the Hill of the Pnyx, meeting place of the Assembly of Athens. Loosely translated, pnyx means “crowded or tightly packed place,” and in ancient times this was a highly populated area. You’ll see the outlines of walls, including the defensive Themistoklean Wall, between the bushes or under the turf as you stroll. The Pnyx meeting place can be found below the summit on the northeastern side of the hill. When democracy was established at the end of the sixth century b.c. the debating chamber moved from the Agora to this structure and it was here that the great statesmen of Greece made their speeches at the rostrum. Seats were provided for the 5,000 citizens of the city needed for a decision-making quorum, who would listen to the arguments of Pericles and Themistocles.     
+...   
+```
