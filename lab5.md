@@ -124,7 +124,7 @@ Athens-WhereToGo.txt:In the northeastern area, you’ll come to the Hill of the 
 ...   
 ```
 
-For example, to search for the word "happy" in all text files in the current directory, but exclude any files with names containing "Athens", you would use the following command:
+Here's another example. To search for the word "happy" in all text files in the current directory, but exclude any files with names containing "Athens", you would use the following command:
 
 ```
 grep --exclude "Athens" happy *.txt
