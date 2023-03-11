@@ -124,13 +124,21 @@ Athens-WhereToGo.txt:In the northeastern area, you’ll come to the Hill of the 
 ...   
 ```
 
-For example, to recursively search for the word "pee" in all text files in the current directory, but exclude any files with names containing "Athens", you would use the following command:
+For example, to search for the word "happy" in all text files in the current directory, but exclude any files with names containing "Athens", you would use the following command:
 
 ```
-grep --exclude "Athens" pee *.txt
+grep --exclude "Athens" happy *.txt
 ```
 
 This yields:
+
+```
+$ grep --exclude "Athens" happy *.txt
+Amsterdam-WhereToGo.txt:The Dutch Royal barge (last used in 1962) is also kept in air-conditioned splendor, but perhaps pride of place — and certainly what brings 18th-century seafaring to life — is the re-creation of a Dutch East India ship The Amsterdam which sits in the dock outside. She is the life-size replica of a real ship completed in 1748, but more than this, The Amsterdam has a “press-ganged” crew to man her. As you explore her decks, the captain will illustrate his course with charts of the time, the doctor will explain his rather primitive treatments, and the ordinary seamen will be happy to sing you a Dutch sea shanty.
+Amsterdam-WhereToGo.txt:This landscape is no accident or happy coincidence but a living museum created in 1960, which has brought together a number of farmhouses, windmills, dairies, and barns — real agricultural buildings which would have been demolished had they not been relocated here. Zaanse Schans has working mills, cheese-making factories, and clog workshops, situated on a canalside. You are free to explore at your own pace and maybe enjoy a pannekoeken (pancake) while you’re there.
+Bahamas-History.txt:Since independence the Bahamas has kept British systems of judiciary and government yet has moved closer economically to its near neighbor, the US. The Bahamian Government has deliberately pursued tourism as the major industry of the Bahamian commonwealth and is happy to welcome many millions of visitors to its shores. The growth in cruise traffic has been particularly strong. The other islands, called the Family Islands by the government but generally referred to as the Out Islands by the tourist trade, have not shared this huge growth in numbers of visitors. Together they offer tourists almost any form of vacation experience, from the bustle of the busy city to the silence of the desert island.
+...
+```
 
 
 
